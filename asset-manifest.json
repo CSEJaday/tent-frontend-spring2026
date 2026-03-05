@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tent-frontend-spring2026/static/css/main.be6ea011.css",
+    "main.js": "/tent-frontend-spring2026/static/js/main.b61e1b55.js",
+    "index.html": "/tent-frontend-spring2026/index.html",
+    "main.be6ea011.css.map": "/tent-frontend-spring2026/static/css/main.be6ea011.css.map",
+    "main.b61e1b55.js.map": "/tent-frontend-spring2026/static/js/main.b61e1b55.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.be6ea011.css",
+    "static/js/main.b61e1b55.js"
+  ]
+}
