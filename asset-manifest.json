@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/tent-frontend-spring2026/static/css/main.be6ea011.css",
-    "main.js": "/tent-frontend-spring2026/static/js/main.5bd25790.js",
+    "main.css": "/tent-frontend-spring2026/static/css/main.dc811b3a.css",
+    "main.js": "/tent-frontend-spring2026/static/js/main.a0c3503a.js",
     "index.html": "/tent-frontend-spring2026/index.html",
-    "main.be6ea011.css.map": "/tent-frontend-spring2026/static/css/main.be6ea011.css.map",
-    "main.5bd25790.js.map": "/tent-frontend-spring2026/static/js/main.5bd25790.js.map"
+    "main.dc811b3a.css.map": "/tent-frontend-spring2026/static/css/main.dc811b3a.css.map",
+    "main.a0c3503a.js.map": "/tent-frontend-spring2026/static/js/main.a0c3503a.js.map"
   },
   "entrypoints": [
-    "static/css/main.be6ea011.css",
-    "static/js/main.5bd25790.js"
+    "static/css/main.dc811b3a.css",
+    "static/js/main.a0c3503a.js"
   ]
 }
