@@ -1,0 +1,188 @@
+:root {
+    --primary-color: #1e2a38;
+    --accent-color: #c89b3c;
+    --light-color: white;
+}
+
+/* Page wrapper */
+.about-page {
+    min-height: 100vh;
+    background-image: url("../images/aboutuspagebckg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Hero */
+.about-hero-section {
+    padding: 40px 20px 20px;
+}
+
+.about-hero-content {
+    position: relative;
+    color: var(--primary-color);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-hero-content h1 {
+    font-size: 40px;
+    margin: 0 0 10px;
+}
+
+.about-hero-content p {
+    font-size: 25px;
+    margin: 0 0 18px;
+    font-weight: bold;
+}
+
+.about-hero-content h2 {
+    font-size: 34px;
+    margin: 0 0 12px;
+}
+
+/* Decoration */
+.about-decorations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.about-line {
+    width: 200px;
+    height: 5px;
+    background-color: var(--accent-color);
+}
+
+.about-circle {
+    width: 30px;
+    height: 30px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+}
+
+/* About cards */
+.about-cards-section {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 40px 20px;
+    margin-bottom: 70px;
+    flex-wrap: wrap;
+}
+
+.about-info-card {
+    background: white;
+    padding: 20px;
+    width: 350px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.about-info-card img {
+    width: 100%;
+    height: 450px;
+    border-radius: 6px;
+    object-fit: cover;
+    display: block;
+}
+
+.about-info-card h3 {
+    margin: 20px 0 15px;
+    color: var(--accent-color);
+}
+
+.about-info-card p {
+    text-align: center;
+}
+
+/* Owners */
+.about-owners-section {
+    max-width: 1100px;
+    margin: 2.5rem auto;
+    padding: 0 1rem;
+}
+
+.about-owners-title {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 40px;
+    margin: 0 0 10px;
+}
+
+.about-owners-subtitle {
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 0 0 30px;
+}
+
+.about-owners-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.owner-profile-card {
+    background: var(--light-color);
+    padding: 20px;
+    width: 350px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.owner-photo {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.owner-name {
+    margin: 12px 0 2px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-align: center;
+}
+
+.owner-role {
+    margin: 0 0 6px;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-align: center;
+}
+
+.owner-bio {
+    margin: 0 0 10px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.owner-email {
+    margin-top: auto;
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Quote */
+.about-quote-section {
+    padding: 20px 20px 60px;
+}
+
+.about-quote-text {
+    color: var(--light-color);
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1000px;
+    font-size: 20px;
+}

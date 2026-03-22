@@ -1,0 +1,45 @@
+:root {
+    --primary-color: #1e2a38;
+    --accent-color: #c89b3c;
+    --light-color: white;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.quotesent-page {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("../images/getaquotebckg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.grey-box {
+    min-height: 200px;
+    width: 650px;
+    max-width: 100%;
+    margin: 0;
+    padding: 40px;
+    border-radius: 4px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+#box-header {
+    color: var(--primary-color);
+}
+
+#quote-text {
+    color: var(--primary-color);
+    padding-top: 20px;
+    font-size: 25px;
+}

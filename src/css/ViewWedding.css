@@ -1,0 +1,203 @@
+:root {
+    --primary-color: #1e2a38;
+    --accent-color: #c89b3c;
+    --light-color: white;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/*Background Image/Hero section*/
+.wedding-header-section {
+    position: relative;
+    min-height: 70vh;
+
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.wedding-front-pic {
+    width: min(100%, 900px);
+    bottom: 20px;
+    aspect-ratio: 700 / 450; 
+    background-image: url("../images/weddingpic.png");
+    background-size: cover;
+    background-position: center;
+    margin: 28px auto 0;
+    position: relative; 
+    border-radius: 6px;
+  box-shadow: 
+  0 35px 80px rgba(0, 0, 0, 0.45),
+  0 10px 25px rgba(0, 0, 0, 0.25);
+  transform: translateY(-10px);
+}
+
+.product-section {
+    margin-top: -20px;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Title & underline*/
+.product-title {
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+/* container only for the product section (won't affect nav) */
+.ps-container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0;
+}
+  
+/* the whole section (controls spacing/overlap) */
+.product-section {
+    background: var(--light-color);
+    padding: 3.5rem 0 4.5rem;
+    margin-top: -70px;           
+    position: relative;
+    z-index: 1;
+}
+  
+  
+/* decoration wrapper (centers line and makes it responsive) */
+.decorations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+  
+/* the line should not force layout; use a max-width and let it shrink */
+.title-design-line {
+    width: 100%;
+    max-width: 650px;     
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+/* Subheading */
+.product-sub {
+    text-align: center;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 25px;
+    margin: 0 0 2rem 0;
+}
+
+/* grid: left description + right specs */
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;  
+    gap: 2.5rem;
+    align-items: start;
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+/* left column */
+.product-long-desc p {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 10px;
+    line-height: 1.6;
+    margin: 0 0 1.25rem 0;
+}
+
+/* price styling */
+.starting-price {
+    color: var(--accent-color);
+    font-weight: 800;
+    font-size: 1.25rem;
+    margin-top: 1.6rem;
+}
+
+span {
+    color: var(--accent-color);
+}
+
+/* right column (specs) */
+.product-specs {
+    position: relative;
+    padding-left: 2.4rem; 
+}
+
+/* vertical divider (left side of specs) did not work*/
+.product-specs::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8%;
+    bottom: 8%;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--gold), rgba(201,153,74,0.7));
+    border-radius: 2px;
+}
+
+#specs-heading {
+    margin: 0 0 1rem 0;
+    color: var(--primary-color);
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+  
+  /* spec list with circular bullets */
+  .spec-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 1.15rem;
+}
+
+.spec-list li {
+    position: relative;
+    padding-left: 1.1rem;
+    margin: 1.1rem 0;
+    color: var(--primary-color);
+    font-weight: 700;
+    line-height: 1.35;
+    font-size: 1.05rem;
+}
+
+/* circular bullet */
+.spec-list li::marker { 
+    content: ""; 
+}
+
+.spec-list li::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  display: inline-block;
+  position: absolute;
+  left: -1.9rem;
+  top: 6px;
+  box-shadow: 0 0 0 6px rgba(255,255,255,0.0);
+}
+
+/* circular bullet - navy fill with gold rim */
+.spec-list li::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    display: inline-block;
+    position: absolute;
+    left: -1.95rem;
+    top: 4px;
+    box-shadow: 0 0 0 6px var(--accent-color(201,153,74,0.08));
+}
