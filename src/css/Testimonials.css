@@ -134,6 +134,16 @@ html, body {
     font-size: 40px;
     color: white;
     cursor: pointer;
+    background: transparent;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    outline: none;
+    appearance: none;
+    z-index: 10;
+    line-height: 1;
 }
 
 .testimonials-arrow-left {
@@ -142,4 +152,13 @@ html, body {
 
 .testimonials-arrow-right {
     right: 25%;
+}
+
+@media (max-width: 768px) {
+    .testimonials-arrow-left {
+        left: 10px;
+    }
+    .testimonials-arrow-right {
+        right: 10px;
+    }
 }

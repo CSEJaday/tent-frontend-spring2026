@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../css/Testimonials.css";
 import TestCard from "../components/TestCard";
 
@@ -17,9 +18,29 @@ const testimonials = [
     date: "June 9th, 2025",
     text: "Excellent service, reasonable prices and courteous crew! Definitely recommend.",
   },
+  {
+    name: "John Lennon",
+    date: "June 17th, 2023",
+    text: "Excellent service, reasonable prices and courteous crew! Definitely recommend.",
+  },
+  {
+    name: "Jessica Rivers",
+    date: "June 20th, 2024",
+    text: "Excellent service, reasonable prices and courteous crew! Definitely recommend.",
+  },
 ];
 
 const Testimonials = () => {
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  const slideForward = () => {
+    setSlideIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  };
+
+  const slideBack = () => {
+    setSlideIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  };
+
   return (
     <main className="testimonials-page">
       <section className="testimonial-hero-head">
@@ -28,30 +49,37 @@ const Testimonials = () => {
       </section>
 
       <section className="testimonials-section">
-        <div className="testimonials-arrow testimonials-arrow-left" aria-hidden="true">
+        <button
+          type="button"
+          className="testimonials-arrow testimonials-arrow-left"
+          onClick={slideBack}
+          aria-label="Previous testimonial"
+        >
           &#10094;
-        </div>
+        </button>
 
         <div className="testimonials-row">
-          {testimonials.map((item, index) => (
-            <TestCard
-              key={index}
-              name={item.name}
-              date={item.date}
-              text={item.text}
-              isActive={index === 0}
-            />
-          ))}
+          <TestCard
+            name={testimonials[slideIndex].name}
+            date={testimonials[slideIndex].date}
+            text={testimonials[slideIndex].text}
+            isActive={true}
+          />
         </div>
 
-        <div className="testimonials-arrow testimonials-arrow-right" aria-hidden="true">
+        <button
+          type="button"
+          className="testimonials-arrow testimonials-arrow-right"
+          onClick={slideForward}
+          aria-label="Next testimonial"
+        >
           &#10095;
-        </div>
+        </button>
 
         <div className="testimonials-dots">
-          <span className="testimonials-dot active"></span>
-          <span className="testimonials-dot"></span>
-          <span className="testimonials-dot"></span>
+          <span className={`testimonials-dot ${slideIndex % 3 === 0 ? "active" : ""}`}></span>
+          <span className={`testimonials-dot ${slideIndex % 3 === 1 ? "active" : ""}`}></span>
+          <span className={`testimonials-dot ${slideIndex % 3 === 2 ? "active" : ""}`}></span>
         </div>
       </section>
     </main>

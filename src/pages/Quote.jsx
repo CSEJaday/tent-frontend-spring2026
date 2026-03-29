@@ -1,12 +1,55 @@
-import { useNavigate } from "react-router-dom";
+import React, { useState, useRef, useEffect } from "react";
 import "../css/Quote.css";
 
 const Quote = () => {
-  const navigate = useNavigate();
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+  const timeoutRef = useRef(null);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/quotesent");
+    setLoading(true);
+    setStatus("");
+
+    const formData = new FormData(e.target);
+    formData.append("access_key", "f68b1ede-6a0a-476b-961a-6ff461248dd0");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        e.target.reset();
+        setStatus("Your quote request was sent successfully!");
+
+        timeoutRef.current = setTimeout(() => {
+          setStatus("");
+        }, 3000);
+      } else {
+        setStatus("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setStatus("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -28,12 +71,6 @@ const Quote = () => {
         <p className="card-sub">It's simple! Fill out the form below!</p>
 
         <form id="contact-form" onSubmit={handleSubmit}>
-          <input
-            type="hidden"
-            name="access_key"
-            value="f68b1ede-6a0a-476b-961a-6ff461248dd0"
-          />
-
           <div className="form-row">
             <div className="col">
               <label htmlFor="fullname">Full Name:</label>
@@ -69,9 +106,13 @@ const Quote = () => {
           </div>
 
           <div className="btn-quote">
-            <button type="submit">Get My Quote</button>
+            <button type="submit" disabled={loading}>
+              {loading ? "Sending..." : "Get My Quote"}
+            </button>
           </div>
         </form>
+
+        {status && <p id="form-status">{status}</p>}
 
         <p id="questions">
           Have questions? Call us at 803-xxx-xxxx or email us at MVPTents@gmail.com
