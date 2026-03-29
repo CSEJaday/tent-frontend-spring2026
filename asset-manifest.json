@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tent-frontend-spring2026/static/css/main.c52826e4.css",
-    "main.js": "/tent-frontend-spring2026/static/js/main.f2e1143c.js",
+    "main.css": "/tent-frontend-spring2026/static/css/main.636d13bf.css",
+    "main.js": "/tent-frontend-spring2026/static/js/main.b89c1fa4.js",
     "static/media/weddingpic.png": "/tent-frontend-spring2026/static/media/weddingpic.07cd1be8d50529e4ac85.png",
     "static/media/getaquotebckg.png": "/tent-frontend-spring2026/static/media/getaquotebckg.d607862dff04b806c244.png",
     "static/media/testimonialsbckg.png": "/tent-frontend-spring2026/static/media/testimonialsbckg.d607862dff04b806c244.png",
@@ -15,11 +15,11 @@
     "static/media/homepagebckg.jpg": "/tent-frontend-spring2026/static/media/homepagebckg.9ddae610d89135e931a7.jpg",
     "static/media/corpeventpic.jpg": "/tent-frontend-spring2026/static/media/corpeventpic.022e066b6465aea5faae.jpg",
     "index.html": "/tent-frontend-spring2026/index.html",
-    "main.c52826e4.css.map": "/tent-frontend-spring2026/static/css/main.c52826e4.css.map",
-    "main.f2e1143c.js.map": "/tent-frontend-spring2026/static/js/main.f2e1143c.js.map"
+    "main.636d13bf.css.map": "/tent-frontend-spring2026/static/css/main.636d13bf.css.map",
+    "main.b89c1fa4.js.map": "/tent-frontend-spring2026/static/js/main.b89c1fa4.js.map"
   },
   "entrypoints": [
-    "static/css/main.c52826e4.css",
-    "static/js/main.f2e1143c.js"
+    "static/css/main.636d13bf.css",
+    "static/js/main.b89c1fa4.js"
   ]
 }
