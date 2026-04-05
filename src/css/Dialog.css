@@ -1,0 +1,48 @@
+.w3-modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+  
+  .w3-modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 50%;
+    border-radius: 10px;
+}
+  
+  .w3-display-topright {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.dialog-content img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+}
+
+.columns {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+  
+/* Left image */
+.columns img {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+  
+  /* right side text */
+.dialog-text {
+    width: 50%;
+}
