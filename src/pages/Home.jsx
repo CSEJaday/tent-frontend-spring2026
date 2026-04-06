@@ -8,12 +8,14 @@ import sportImg from "../images/sportingeventpic.png";
 import corpImg from "../images/corpeventpic.jpg";
 import Tent from "../components/Tent";
 
+const API_BASE_URL = "https://demo-backend-zplt.onrender.com";
+
 const Home = () => {
   const [tents, setTents] = useState([]);
 
   useEffect(() => {
     const loadTents = async () => {
-      const response = await axios.get("http://localhost:3001/api/tents");
+      const response = await axios.get(`${API_BASE_URL}/api/tents`);
       setTents(response.data);
     };
 

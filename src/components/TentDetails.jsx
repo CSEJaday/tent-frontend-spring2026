@@ -2,12 +2,14 @@ import "../css/ViewWedding.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const API_BASE_URL = "https://demo-backend-zplt.onrender.com";
+
 const TentDetails = () => {
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
         axios
-            .get("http://localhost:3001/api/tent/4")
+            .get(`${API_BASE_URL}/api/tent/4`)
             .then((res) => {
                 setProduct(res.data);
             })
