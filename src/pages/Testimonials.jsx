@@ -1,37 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "../css/Testimonials.css";
 import TestCard from "../components/TestCard";
 
-const testimonials = [
-  {
-    name: "Hannah Kennedy",
-    date: "June 9th, 2025",
-    text: "Excellent service, reasonable prices and courteous crew! Definitely recommend.",
-  },
-  {
-    name: "Randy Brown",
-    date: "July 4th, 2024",
-    text: "Thank you for helping make our event a success. Quality service and product!",
-  },
-  {
-    name: "James Rice",
-    date: "June 9th, 2025",
-    text: "Excellent service, reasonable prices and courteous crew! Definitely recommend.",
-  },
-  {
-    name: "John Lennon",
-    date: "June 17th, 2023",
-    text: "Excellent service, reasonable prices and courteous crew! Definitely recommend.",
-  },
-  {
-    name: "Jessica Rivers",
-    date: "June 20th, 2024",
-    text: "Excellent service, reasonable prices and courteous crew! Definitely recommend.",
-  },
-];
+const API_BASE_URL = "https://demo-backend-zplt.onrender.com";
 
 const Testimonials = () => {
+  const [testimonials, setTestimonials] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
+  useEffect(()=> {
+    axios
+    .get(`${API_BASE_URL}/api/testimonials`)
+      .then((res) => {
+        setTestimonials(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+  if (!testimonials.length) return <p></p>;
 
   const slideForward = () => {
     setSlideIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
