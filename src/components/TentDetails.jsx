@@ -16,7 +16,7 @@ const TentDetails = () => {
             .catch((err) => console.error(err));
     }, []);
 
-    if (!product) return <p></p>;
+    if (!product) return <p>Loading!</p>;
 
     return (
         <section className="product-section">

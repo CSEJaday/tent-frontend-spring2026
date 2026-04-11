@@ -2,11 +2,23 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../css/Testimonials.css";
 import TestCard from "../components/TestCard";
+import AddTestimonial from "../components/AddTestimonial";
 
 const API_BASE_URL = "https://demo-backend-zplt.onrender.com";
+const urlLocal = "http://localhost:3001/api/testimonials";
+const urlRender = "";
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
+  const [showAddDialog, setShowAddDialog] = useState(false);
+  const openAddDialog = () => {
+    setShowAddDialog(true);
+  };
+
+  const closeAddDialog = () => {
+    setShowAddDialog(false);
+  }
+
   const [slideIndex, setSlideIndex] = useState(0);
   useEffect(()=> {
     axios
@@ -16,7 +28,7 @@ const Testimonials = () => {
       })
       .catch((err) => console.error(err));
   }, []);
-  if (!testimonials.length) return <p></p>;
+  if (!testimonials.length) return <p>Loading!</p>;
 
   const slideForward = () => {
     setSlideIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
@@ -26,11 +38,24 @@ const Testimonials = () => {
     setSlideIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
   };
 
+  const addTestimonialToState = (newTestimonial) => {
+    setTestimonials((prev) => {
+      const updated = [...prev, newTestimonial];
+      setSlideIndex(updated.length - 1);
+      return updated;
+    });
+  };
+
   return (
     <main className="testimonials-page">
       <section className="testimonial-hero-head">
         <h1 id="testimonial-head-text">What Our Clients Say</h1>
         <p id="testimonial-sub-text">Some testimonials from past clients</p>
+        <button id="btn-add-review" onClick={openAddDialog}>+</button>
+        {showAddDialog?(<AddTestimonial
+                          closeAddDialog={closeAddDialog}
+                          onAddTestimonial={addTestimonialToState}
+                          />):("")}
       </section>
 
       <section className="testimonials-section">

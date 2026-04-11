@@ -18,9 +18,9 @@ const Navigation = () => {
             </Link>
 
             <nav id="main-nav">
-                <a id="toggle-nav" onClick={toggleMenu} href="#">
+                <button id="toggle-nav" onClick={toggleMenu} href="#">
                     {menuOpen?(<p>&#8963;</p>):(<p>&#8964;</p>)}
-                </a>
+                </button>
                 <ul className={menuOpen?"nav-links":"hide-small"}>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About us</Link></li>

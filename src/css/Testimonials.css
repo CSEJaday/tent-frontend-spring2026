@@ -33,6 +33,11 @@ html, body {
     font-size: 30px;
 }
 
+#btn-add-review {
+    background:#1e2a38;
+    color:white;
+}
+
 /* SECTION */
 .testimonials-section {
     position: relative;
