@@ -25,6 +25,7 @@ html, body {
     text-align: center;
     color: var(--light-color);
     font-size: 50px;
+    
 }
 
 #testimonial-sub-text {
@@ -36,6 +37,9 @@ html, body {
 #btn-add-review {
     background:#1e2a38;
     color:white;
+    display: block;
+    margin: 0 auto;
+
 }
 
 /* SECTION */

@@ -73,6 +73,7 @@ const Testimonials = () => {
             name={testimonials[slideIndex].name}
             date={testimonials[slideIndex].date}
             text={testimonials[slideIndex].text}
+            rating={testimonials[slideIndex].rating}
             isActive={true}
           />
         </div>
