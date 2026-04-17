@@ -116,6 +116,29 @@ html, body {
     font-size: 15px;
 }
 
+.test-card-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .edit-btn {
+    background-color: white;
+    color: #1e2a38;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+  }
+
 /* DOTS */
 .testimonials-dots {
     display: flex;
