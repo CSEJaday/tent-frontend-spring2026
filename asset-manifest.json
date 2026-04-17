@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/tent-frontend-spring2026/static/css/main.dc0c1b2f.css",
+    "main.css": "/tent-frontend-spring2026/static/css/main.a2d73968.css",
     "main.js": "/tent-frontend-spring2026/static/js/main.7ac86cd3.js",
     "static/media/weddingpic.png": "/tent-frontend-spring2026/static/media/weddingpic.07cd1be8d50529e4ac85.png",
     "static/media/getaquotebckg.png": "/tent-frontend-spring2026/static/media/getaquotebckg.d607862dff04b806c244.png",
@@ -15,11 +15,11 @@
     "static/media/homepagebckg.jpg": "/tent-frontend-spring2026/static/media/homepagebckg.9ddae610d89135e931a7.jpg",
     "static/media/corpeventpic.jpg": "/tent-frontend-spring2026/static/media/corpeventpic.022e066b6465aea5faae.jpg",
     "index.html": "/tent-frontend-spring2026/index.html",
-    "main.dc0c1b2f.css.map": "/tent-frontend-spring2026/static/css/main.dc0c1b2f.css.map",
+    "main.a2d73968.css.map": "/tent-frontend-spring2026/static/css/main.a2d73968.css.map",
     "main.7ac86cd3.js.map": "/tent-frontend-spring2026/static/js/main.7ac86cd3.js.map"
   },
   "entrypoints": [
-    "static/css/main.dc0c1b2f.css",
+    "static/css/main.a2d73968.css",
     "static/js/main.7ac86cd3.js"
   ]
 }
