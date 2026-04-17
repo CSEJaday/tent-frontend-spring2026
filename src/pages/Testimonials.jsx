@@ -18,12 +18,31 @@ const Testimonials = () => {
   const [showEditDialog, setShowEditDialog] = useState(false);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [selectedTestimonial, setSelectedTestimonial] = useState(null);
-  const [userReviewId, setUserReviewId] = useState(null);
+  const [userReviewId, setUserReviewId] = useState(() =>
+    localStorage.getItem("userReviewId")
+  );
 
   useEffect(() => {
     axios
       .get(apiUrl)
-      .then((res) => setTestimonials(res.data))
+      .then((res) => {
+        const fixed = res.data.map((t) => ({
+          ...t,
+          id: t.id || t._id,
+        }));
+  
+        setTestimonials(fixed);
+  
+        const savedId = localStorage.getItem("userReviewId");
+        if (savedId) {
+          const index = fixed.findIndex(
+            (t) => String(t.id) === String(savedId)
+          );
+          if (index !== -1) {
+            setSlideIndex(index);
+          }
+        }
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -61,15 +80,19 @@ const Testimonials = () => {
   };
 
   const addTestimonialToState = (newTestimonial) => {
+    const reviewId = newTestimonial.id || newTestimonial._id; // 👈 define it here
+  
     setTestimonials((prev) => {
       const updated = [...prev, newTestimonial];
       setSlideIndex(updated.length - 1);
       return updated;
     });
-
-    setUserReviewId(newTestimonial.id || newTestimonial._id);
+  
+    setUserReviewId(reviewId);
+    localStorage.setItem("userReviewId", reviewId);
   };
 
+  //setUserReviewId(newTestimonial.id || newTestimonial._id);
   const updateTestimonialInState = (updatedTestimonial) => {
     setTestimonials((prev) =>
       prev.map((item) =>
@@ -91,8 +114,7 @@ const Testimonials = () => {
   };
 
   const current = testimonials[slideIndex];
-  const canEditDelete =
-  (current.id || current._id) === userReviewId;
+  const canEditDelete = String(current.id || current._id) === String(userReviewId);
   
   return (
     <main className="testimonials-page">
