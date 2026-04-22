@@ -21,39 +21,31 @@ const Testimonials = () => {
   const [userReviewId, setUserReviewId] = useState(() =>
     localStorage.getItem("userReviewId")
   );
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
         const res = await axios.get(apiUrl);
-
         const fixed = res.data.map((t) => ({
           ...t,
           id: t.id || t._id,
         }));
-
         setTestimonials(fixed);
-
-        const savedId = localStorage.getItem("userReviewId");
-        if (savedId) {
-          const index = fixed.findIndex((t) => String(t.id) === String(savedId));
-          if (index !== -1) {
-            setSlideIndex(index);
-          }
-        }
       } catch (err) {
         console.error(err);
       } finally {
         setLoading(false);
       }
     };
-
+  
     fetchTestimonials();
   }, []);
-
+  
   if (loading) return <p>Loading!</p>;
   if (!testimonials.length) return <p>No testimonials yet.</p>;
+
 
   const slideForward = () => {
     setSlideIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
