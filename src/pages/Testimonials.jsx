@@ -21,32 +21,39 @@ const Testimonials = () => {
   const [userReviewId, setUserReviewId] = useState(() =>
     localStorage.getItem("userReviewId")
   );
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(apiUrl)
-      .then((res) => {
+    const fetchTestimonials = async () => {
+      try {
+        const res = await axios.get(apiUrl);
+
         const fixed = res.data.map((t) => ({
           ...t,
           id: t.id || t._id,
         }));
-  
+
         setTestimonials(fixed);
-  
+
         const savedId = localStorage.getItem("userReviewId");
         if (savedId) {
-          const index = fixed.findIndex(
-            (t) => String(t.id) === String(savedId)
-          );
+          const index = fixed.findIndex((t) => String(t.id) === String(savedId));
           if (index !== -1) {
             setSlideIndex(index);
           }
         }
-      })
-      .catch((err) => console.error(err));
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTestimonials();
   }, []);
 
-  if (!testimonials.length) return <p>Loading!</p>;
+  if (loading) return <p>Loading!</p>;
+  if (!testimonials.length) return <p>No testimonials yet.</p>;
 
   const slideForward = () => {
     setSlideIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
@@ -80,19 +87,18 @@ const Testimonials = () => {
   };
 
   const addTestimonialToState = (newTestimonial) => {
-    const reviewId = newTestimonial.id || newTestimonial._id; // 👈 define it here
-  
+    const reviewId = newTestimonial.id || newTestimonial._id;
+
     setTestimonials((prev) => {
       const updated = [...prev, newTestimonial];
       setSlideIndex(updated.length - 1);
       return updated;
     });
-  
+
     setUserReviewId(reviewId);
     localStorage.setItem("userReviewId", reviewId);
   };
 
-  //setUserReviewId(newTestimonial.id || newTestimonial._id);
   const updateTestimonialInState = (updatedTestimonial) => {
     setTestimonials((prev) =>
       prev.map((item) =>
@@ -105,7 +111,7 @@ const Testimonials = () => {
 
   const deleteTestimonialFromState = (id) => {
     setTestimonials((prev) => {
-      const updated = prev.filter((item) => (item.id || item._id) !== id);
+      const updated = prev.filter((item) => String(item.id || item._id) !== String(id));
       if (slideIndex >= updated.length) {
         setSlideIndex(updated.length - 1 < 0 ? 0 : updated.length - 1);
       }
@@ -114,8 +120,9 @@ const Testimonials = () => {
   };
 
   const current = testimonials[slideIndex];
-  const canEditDelete = String(current.id || current._id) === String(userReviewId);
-  
+  const canEditDelete =
+    String(current.id || current._id) === String(userReviewId);
+
   return (
     <main className="testimonials-page">
       <section className="testimonial-hero-head">
